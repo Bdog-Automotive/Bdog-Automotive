@@ -1204,290 +1204,126 @@ select {
 
 
 
-<div class="goal-builder">
+    <div class="goal-grid">
 
-    <div class="goal-section">
-        <div class="goal-heading">
-            <span class="goal-icon">🚀</span>
-            <div>
-                <h2>Performance</h2>
-                <p>How much performance do you want?</p>
+
+        <div
+            class="goal"
+            onclick="toggleGoal(this)"
+            data-goal="More Power"
+        >
+
+            <div class="tick">
+                ✓
             </div>
+
+            <div class="goal-icon">
+                🚀
+            </div>
+
+            <h3>
+                More Power
+            </h3>
+
+            <p>
+                Engine performance
+            </p>
+
         </div>
 
-        <div class="goal-options">
 
-            <div class="goal-option"
-                 onclick="selectModificationGoal(this,'performance','OEM+')">
-                <div class="goal-number">01</div>
-                <h3>OEM+</h3>
-                <p>Subtle improvements while keeping the factory feel.</p>
-                <span>Daily friendly</span>
+
+        <div
+            class="goal"
+            onclick="toggleGoal(this)"
+            data-goal="Better Handling"
+        >
+
+            <div class="tick">
+                ✓
             </div>
 
-            <div class="goal-option"
-                 onclick="selectModificationGoal(this,'performance','Fast Road')">
-                <div class="goal-number">02</div>
-                <h3>Fast Road</h3>
-                <p>Noticeable performance gains while remaining usable every day.</p>
-                <span>Road focused</span>
+            <div class="goal-icon">
+                🏁
             </div>
 
-            <div class="goal-option"
-                 onclick="selectModificationGoal(this,'performance','Performance')">
-                <div class="goal-number">03</div>
-                <h3>Performance</h3>
-                <p>A more serious setup with performance taking priority.</p>
-                <span>High performance</span>
-            </div>
+            <h3>
+                Better Handling
+            </h3>
 
-            <div class="goal-option"
-                 onclick="selectModificationGoal(this,'performance','Extreme')">
-                <div class="goal-number">04</div>
-                <h3>Extreme</h3>
-                <p>Maximum performance with greater compromises accepted.</p>
-                <span>Advanced</span>
-            </div>
+            <p>
+                Suspension & chassis
+            </p>
 
         </div>
-    </div>
 
 
-    <div class="goal-section">
-        <div class="goal-heading">
-            <span class="goal-icon">🏁</span>
-            <div>
-                <h2>Handling</h2>
-                <p>How far do you want to take the chassis?</p>
+
+        <div
+            class="goal"
+            onclick="toggleGoal(this)"
+            data-goal="Better Sound"
+        >
+
+            <div class="tick">
+                ✓
             </div>
+
+            <div class="goal-icon">
+                🔊
+            </div>
+
+            <h3>
+                Better Sound
+            </h3>
+
+            <p>
+                Exhaust & induction
+            </p>
+
         </div>
 
-        <div class="goal-options">
 
-            <div class="goal-option"
-                 onclick="selectModificationGoal(this,'handling','OEM+')">
-                <div class="goal-number">01</div>
-                <h3>OEM+</h3>
-                <p>Sharper handling without sacrificing comfort.</p>
-                <span>Daily friendly</span>
+
+        <div
+            class="goal"
+            onclick="toggleGoal(this)"
+            data-goal="Better Looks"
+        >
+
+            <div class="tick">
+                ✓
             </div>
 
-            <div class="goal-option"
-                 onclick="selectModificationGoal(this,'handling','Fast Road')">
-                <div class="goal-number">02</div>
-                <h3>Fast Road</h3>
-                <p>Improved grip, body control and steering response.</p>
-                <span>Road focused</span>
+            <div class="goal-icon">
+                ✨
             </div>
 
-            <div class="goal-option"
-                 onclick="selectModificationGoal(this,'handling','Performance')">
-                <div class="goal-number">03</div>
-                <h3>Performance</h3>
-                <p>A much more focused suspension and chassis setup.</p>
-                <span>Performance</span>
-            </div>
+            <h3>
+                Better Looks
+            </h3>
 
-            <div class="goal-option"
-                 onclick="selectModificationGoal(this,'handling','Track')">
-                <div class="goal-number">04</div>
-                <h3>Track</h3>
-                <p>Chassis control and grip take priority over comfort.</p>
-                <span>Track focused</span>
-            </div>
+            <p>
+                Exterior styling
+            </p>
 
         </div>
-    </div>
 
 
-    <div class="goal-section">
-        <div class="goal-heading">
-            <span class="goal-icon">🔊</span>
-            <div>
-                <h2>Sound</h2>
-                <p>Choose how aggressive you want the sound.</p>
-            </div>
-        </div>
 
-        <div class="goal-options">
+        <div
+            class="goal"
+            onclick="toggleGoal(this)"
+            data-goal="Fast Road"
+        >
 
-            <div class="goal-option"
-                 onclick="selectModificationGoal(this,'sound','Subtle')">
-                <div class="goal-number">01</div>
-                <h3>Subtle</h3>
-                <p>A little more character without becoming loud.</p>
-                <span>OEM+</span>
+            <div class="tick">
+                ✓
             </div>
 
-            <div class="goal-option"
-                 onclick="selectModificationGoal(this,'sound','Sporty')">
-                <div class="goal-number">02</div>
-                <h3>Sporty</h3>
-                <p>More exhaust and induction character for road use.</p>
-                <span>Fast Road</span>
+            <div class="goal-icon">
+                🛣️
             </div>
-
-            <div class="goal-option"
-                 onclick="selectModificationGoal(this,'sound','Aggressive')">
-                <div class="goal-number">03</div>
-                <h3>Aggressive</h3>
-                <p>A louder, more purposeful performance sound.</p>
-                <span>Loud</span>
-            </div>
-
-            <div class="goal-option"
-                 onclick="selectModificationGoal(this,'sound','Maximum')">
-                <div class="goal-number">04</div>
-                <h3>Maximum</h3>
-                <p>Sound is a major priority of the build.</p>
-                <span>Extreme</span>
-            </div>
-
-        </div>
-    </div>
-
-
-    <div class="goal-section">
-        <div class="goal-heading">
-            <span class="goal-icon">✨</span>
-            <div>
-                <h2>Appearance</h2>
-                <p>Choose the visual direction of the build.</p>
-            </div>
-        </div>
-
-        <div class="goal-options">
-
-            <div class="goal-option"
-                 onclick="selectModificationGoal(this,'appearance','OEM+')">
-                <div class="goal-number">01</div>
-                <h3>OEM+</h3>
-                <p>Factory-style improvements with a subtle finish.</p>
-                <span>Subtle</span>
-            </div>
-
-            <div class="goal-option"
-                 onclick="selectModificationGoal(this,'appearance','Sporty')">
-                <div class="goal-number">02</div>
-                <h3>Sporty</h3>
-                <p>Sharper stance, wheels and styling.</p>
-                <span>Sporty</span>
-            </div>
-
-            <div class="goal-option"
-                 onclick="selectModificationGoal(this,'appearance','Aggressive')">
-                <div class="goal-number">03</div>
-                <h3>Aggressive</h3>
-                <p>A much more noticeable exterior transformation.</p>
-                <span>Aggressive</span>
-            </div>
-
-            <div class="goal-option"
-                 onclick="selectModificationGoal(this,'appearance','Full Build')">
-                <div class="goal-number">04</div>
-                <h3>Full Build</h3>
-                <p>Complete visual transformation from front to rear.</p>
-                <span>Full styling</span>
-            </div>
-
-        </div>
-    </div>
-
-
-    <div class="goal-section">
-        <div class="goal-heading">
-            <span class="goal-icon">🛑</span>
-            <div>
-                <h2>Braking</h2>
-                <p>Choose the braking level you need.</p>
-            </div>
-        </div>
-
-        <div class="goal-options">
-
-            <div class="goal-option"
-                 onclick="selectModificationGoal(this,'brakes','OEM+')">
-                <div class="goal-number">01</div>
-                <h3>OEM+</h3>
-                <p>Better pads and braking feel while keeping things simple.</p>
-                <span>Road</span>
-            </div>
-
-            <div class="goal-option"
-                 onclick="selectModificationGoal(this,'brakes','Fast Road')">
-                <div class="goal-number">02</div>
-                <h3>Fast Road</h3>
-                <p>Improved stopping power and fade resistance.</p>
-                <span>Fast Road</span>
-            </div>
-
-            <div class="goal-option"
-                 onclick="selectModificationGoal(this,'brakes','Performance')">
-                <div class="goal-number">03</div>
-                <h3>Performance</h3>
-                <p>Serious braking upgrades for harder driving.</p>
-                <span>Performance</span>
-            </div>
-
-            <div class="goal-option"
-                 onclick="selectModificationGoal(this,'brakes','Track')">
-                <div class="goal-number">04</div>
-                <h3>Track</h3>
-                <p>Brake performance prioritised for repeated hard use.</p>
-                <span>Track</span>
-            </div>
-
-        </div>
-    </div>
-
-
-    <div class="goal-section">
-        <div class="goal-heading">
-            <span class="goal-icon">🛣️</span>
-            <div>
-                <h2>Driving Style</h2>
-                <p>Tell BDOG how you actually use the car.</p>
-            </div>
-        </div>
-
-        <div class="goal-options">
-
-            <div class="goal-option"
-                 onclick="selectModificationGoal(this,'driving','Daily')">
-                <div class="goal-number">01</div>
-                <h3>Daily Driver</h3>
-                <p>Comfort, reliability and usability come first.</p>
-                <span>Daily</span>
-            </div>
-
-            <div class="goal-option"
-                 onclick="selectModificationGoal(this,'driving','Fast Road')">
-                <div class="goal-number">02</div>
-                <h3>Fast Road</h3>
-                <p>Built for enthusiastic driving on the road.</p>
-                <span>Popular</span>
-            </div>
-
-            <div class="goal-option"
-                 onclick="selectModificationGoal(this,'driving','Fast Road+')">
-                <div class="goal-number">03</div>
-                <h3>Fast Road+</h3>
-                <p>More aggressive while remaining road usable.</p>
-                <span>Performance</span>
-            </div>
-
-            <div class="goal-option"
-                 onclick="selectModificationGoal(this,'driving','Track')">
-                <div class="goal-number">04</div>
-                <h3>Track</h3>
-                <p>Performance takes priority over comfort.</p>
-                <span>Track</span>
-            </div>
-
-        </div>
-    </div>
-
-</div>
 
             <h3>
                 Fast Road
