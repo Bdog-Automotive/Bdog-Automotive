@@ -1,0 +1,1507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>BDOG Automotive</title>
+
+<style>
+
+:root {
+    --bg: #08090b;
+    --panel: #121519;
+    --panel2: #181c21;
+    --line: #30353d;
+    --red: #f22b30;
+    --red-dark: #b91e23;
+    --text: #ffffff;
+    --muted: #9aa1aa;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.app {
+    width: 100%;
+    max-width: 760px;
+    min-height: 100vh;
+    margin: auto;
+}
+
+/* HEADER */
+
+.header {
+    height: 66px;
+    padding: 0 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border-bottom: 1px solid var(--line);
+
+    background: rgba(8,9,11,0.97);
+
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.logo {
+    font-size: 25px;
+    font-weight: 900;
+    font-style: italic;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--red);
+}
+
+.logo small {
+    font-size: 8px;
+    letter-spacing: 1px;
+}
+
+.menu {
+    font-size: 24px;
+}
+
+/* PROGRESS */
+
+.progress {
+    display: flex;
+    padding: 18px 20px 8px;
+}
+
+.step {
+    width: 25%;
+    text-align: center;
+    color: #666;
+    font-size: 10px;
+    position: relative;
+}
+
+.step:before {
+    content: "";
+    display: block;
+
+    width: 22px;
+    height: 22px;
+
+    margin: auto;
+
+    border: 1px solid #555;
+    border-radius: 50%;
+
+    background: #111;
+
+    line-height: 20px;
+}
+
+.step.active {
+    color: #fff;
+}
+
+.step.active:before {
+    background: var(--red);
+    border-color: var(--red);
+}
+
+.step:not(:last-child):after {
+    content: "";
+
+    position: absolute;
+
+    top: 11px;
+    left: calc(50% + 12px);
+
+    width: calc(100% - 24px);
+
+    height: 1px;
+
+    background: #444;
+}
+
+/* PAGES */
+
+.page {
+    display: none;
+
+    padding: 25px 22px 45px;
+
+    min-height: calc(100vh - 115px);
+}
+
+.page.active {
+    display: block;
+}
+
+/* TYPOGRAPHY */
+
+.eyebrow {
+    color: var(--red);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+h1 {
+    font-size: 34px;
+    line-height: 1.05;
+    margin: 10px 0;
+}
+
+h2 {
+    font-size: 20px;
+    margin: 0 0 5px;
+}
+
+p {
+    color: var(--muted);
+    line-height: 1.5;
+    font-size: 14px;
+}
+
+/* BUTTONS */
+
+.btn {
+    border: 0;
+    border-radius: 7px;
+
+    background: var(--red);
+    color: #fff;
+
+    padding: 16px;
+
+    width: 100%;
+
+    font-weight: 900;
+
+    cursor: pointer;
+}
+
+.btn:hover {
+    background: #ff353b;
+}
+
+.btn.secondary {
+    background: #15191e;
+    border: 1px solid #454b54;
+}
+
+.btnrow {
+    display: flex;
+    gap: 10px;
+    margin-top: 18px;
+}
+
+.btnrow .btn {
+    flex: 1;
+}
+
+/* HOME */
+
+.hero {
+    min-height: calc(100vh - 115px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.hero h1 {
+    font-size: 42px;
+}
+
+.heroCar {
+    height: 220px;
+
+    margin: 22px 0 28px;
+
+    border: 1px solid var(--line);
+    border-radius: 14px;
+
+    background:
+        radial-gradient(
+            ellipse at 50% 65%,
+            #4b515a,
+            #22262c 38%,
+            #0b0d10 72%
+        );
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-weight: 900;
+    font-size: 12px;
+
+    letter-spacing: 3px;
+}
+
+/* REGISTRATION */
+
+.reg {
+    display: flex;
+    gap: 8px;
+    margin-top: 18px;
+}
+
+.reg input {
+    flex: 1;
+
+    background: #f1ca52;
+    color: #111;
+
+    font-weight: 900;
+
+    text-align: center;
+
+    font-size: 19px;
+
+    border: 0;
+    border-radius: 7px;
+
+    padding: 12px;
+
+    text-transform: uppercase;
+}
+
+.reg .btn {
+    width: 145px;
+}
+
+/* MANUAL VEHICLE SEARCH */
+
+#manual {
+    display: none;
+    margin-top: 22px;
+}
+
+.field {
+    margin-top: 17px;
+}
+
+label {
+    display: block;
+
+    font-size: 10px;
+
+    font-weight: 800;
+
+    color: #bbb;
+
+    margin-bottom: 7px;
+
+    letter-spacing: .6px;
+}
+
+select {
+    width: 100%;
+    height: 48px;
+
+    background: #12161b;
+
+    color: #fff;
+
+    border: 1px solid #454b54;
+
+    border-radius: 7px;
+
+    padding: 0 12px;
+
+    font-size: 14px;
+}
+
+/* VEHICLE FOUND */
+
+.vehicle {
+    display: none;
+
+    margin-top: 20px;
+
+    padding: 14px;
+
+    border: 1px solid var(--line);
+
+    background: var(--panel);
+
+    border-radius: 9px;
+
+    gap: 13px;
+
+    align-items: center;
+}
+
+.vehiclePic {
+    width: 105px;
+    height: 70px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #4d535c,
+            #171a1e
+        );
+
+    border-radius: 7px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    text-align: center;
+}
+
+.vehicle small {
+    color: var(--muted);
+}
+
+/* GOALS */
+
+.grid {
+    display: grid;
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.option {
+    position: relative;
+
+    border: 1px solid var(--line);
+
+    border-radius: 9px;
+
+    background: var(--panel);
+
+    padding: 10px;
+
+    min-height: 118px;
+
+    cursor: pointer;
+}
+
+.option.selected {
+    border: 2px solid var(--red);
+
+    padding: 9px;
+}
+
+.pic {
+    height: 67px;
+
+    border-radius: 6px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #353a42,
+            #15181d
+        );
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 27px;
+
+    margin-bottom: 8px;
+}
+
+.option b {
+    font-size: 12px;
+}
+
+.tick {
+    display: none;
+
+    position: absolute;
+
+    right: 7px;
+    top: 7px;
+
+    background: var(--red);
+
+    width: 21px;
+    height: 21px;
+
+    border-radius: 50%;
+
+    text-align: center;
+
+    line-height: 21px;
+
+    font-style: normal;
+}
+
+.selected .tick {
+    display: block;
+}
+
+.selection {
+    margin-top: 16px;
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    background: #181b20;
+
+    border: 1px solid var(--line);
+
+    font-size: 11px;
+
+    color: #b9bec5;
+}
+
+/* BUDGET */
+
+.budget {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.budget button {
+    padding: 17px;
+
+    border-radius: 8px;
+
+    border: 1px solid var(--line);
+
+    background: var(--panel);
+
+    color: #fff;
+
+    text-align: left;
+
+    cursor: pointer;
+
+    font-size: 14px;
+}
+
+.budget button.selected {
+    border: 2px solid var(--red);
+
+    padding: 16px;
+}
+
+.budget span {
+    float: right;
+
+    color: #888;
+
+    font-size: 12px;
+}
+
+.note {
+    margin-top: 16px;
+
+    padding: 12px;
+
+    border-radius: 8px;
+
+    background: #181b20;
+
+    border: 1px solid var(--line);
+
+    font-size: 11px;
+
+    color: #b9bec5;
+}
+
+/* BUILD */
+
+.buildHeader {
+    display: flex;
+
+    gap: 13px;
+
+    align-items: center;
+
+    margin: 18px 0;
+}
+
+.buildCar {
+    width: 115px;
+    height: 75px;
+
+    border-radius: 8px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #4a5059,
+            #171a1e
+        );
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 10px;
+
+    font-weight: 900;
+
+    text-align: center;
+}
+
+.tags {
+    display: flex;
+
+    gap: 6px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 12px;
+}
+
+.tag {
+    padding: 6px 9px;
+
+    border-radius: 15px;
+
+    background: #22262c;
+
+    font-size: 10px;
+}
+
+/* PARTS */
+
+.part {
+    display: flex;
+
+    gap: 11px;
+
+    align-items: center;
+
+    margin-top: 9px;
+
+    padding: 11px;
+
+    background: #f5f5f5;
+
+    color: #111;
+
+    border-radius: 8px;
+}
+
+.partImg {
+    width: 65px;
+    height: 55px;
+
+    background: #dfe2e5;
+
+    border-radius: 6px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 24px;
+}
+
+.partInfo {
+    flex: 1;
+}
+
+.partInfo b {
+    font-size: 13px;
+}
+
+.partInfo span {
+    display: block;
+
+    color: #666;
+
+    font-size: 11px;
+
+    margin-top: 4px;
+}
+
+.price {
+    font-weight: 900;
+}
+
+/* TOTALS */
+
+.total {
+    display: flex;
+
+    justify-content: space-between;
+
+    padding: 13px 3px;
+
+    border-bottom: 1px solid var(--line);
+
+    font-size: 13px;
+}
+
+.total:last-of-type {
+    font-size: 18px;
+}
+
+/* MOBILE */
+
+@media (max-width: 520px) {
+
+    .grid {
+        grid-template-columns:
+            repeat(2, 1fr);
+    }
+
+    .reg {
+        flex-direction: column;
+    }
+
+    .reg .btn {
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 38px;
+    }
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- HEADER -->
+
+<header class="header">
+
+    <div class="logo">
+        <span>B</span>DOG
+        <small>AUTOMOTIVE</small>
+    </div>
+
+    <div class="menu">
+        ☰
+    </div>
+
+</header>
+
+
+<!-- PROGRESS -->
+
+<div class="progress">
+
+    <div class="step active">
+        Your Car
+    </div>
+
+    <div class="step">
+        Your Goals
+    </div>
+
+    <div class="step">
+        Your Budget
+    </div>
+
+    <div class="step">
+        Your Build
+    </div>
+
+</div>
+
+
+<!-- ========================= -->
+<!-- PAGE 1 -->
+<!-- ========================= -->
+
+<section class="page active" id="p1">
+
+    <div class="hero">
+
+        <div class="eyebrow">
+            BDOG AUTOMOTIVE
+        </div>
+
+        <h1>
+            BUILD YOUR<br>
+            <span style="color:var(--red)">
+                CAR.
+            </span>
+        </h1>
+
+        <p>
+            Real builds. Real performance.
+            No guesswork.
+        </p>
+
+        <div class="heroCar">
+            BDOG · BUILT DIFFERENT
+        </div>
+
+        <button
+            class="btn"
+            onclick="go(2)"
+        >
+            START BUILDING →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- PAGE 2 -->
+<!-- YOUR CAR -->
+<!-- ========================= -->
+
+<section class="page" id="p2">
+
+    <div class="eyebrow">
+        STEP 1 · YOUR CAR
+    </div>
+
+    <h1>
+        What's your car?
+    </h1>
+
+    <p>
+        Enter your registration and we'll
+        find your vehicle automatically.
+    </p>
+
+
+    <!-- REG -->
+
+    <div class="reg">
+
+        <input
+            id="reg"
+            placeholder="YJ16 WJN"
+            maxlength="8"
+        >
+
+        <button
+            class="btn"
+            onclick="findCar()"
+        >
+            FIND MY CAR
+        </button>
+
+    </div>
+
+
+    <!-- MANUAL VEHICLE DETAILS -->
+
+    <div id="manual">
+
+        <p>
+            Or search manually
+        </p>
+
+
+        <div class="field">
+
+            <label>
+                MAKE
+            </label>
+
+            <select id="make">
+
+                <option value="">
+                    Select make
+                </option>
+
+                <option value="Ford">
+                    Ford
+                </option>
+
+                <option value="Volkswagen">
+                    Volkswagen
+                </option>
+
+                <option value="BMW">
+                    BMW
+                </option>
+
+                <option value="Audi">
+                    Audi
+                </option>
+
+                <option value="Mercedes-Benz">
+                    Mercedes-Benz
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                MODEL
+            </label>
+
+            <select id="model">
+
+                <option value="">
+                    Select model
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                GENERATION
+            </label>
+
+            <select id="generation">
+
+                <option value="">
+                    Select generation
+                </option>
+
+            </select>
+
+        </div>
+
+
+        <div class="field">
+
+            <label>
+                ENGINE
+            </label>
+
+            <select id="engine">
+
+                <option value="">
+                    Select engine
+                </option>
+
+            </select>
+
+        </div>
+
+    </div>
+
+
+    <!-- VEHICLE RESULT -->
+
+    <div
+        class="vehicle"
+        id="vehicle"
+    >
+
+        <div class="vehiclePic">
+
+            FORD<br>
+            FIESTA ST
+
+        </div>
+
+        <div>
+
+            <b>
+                2016 Ford Fiesta ST
+            </b>
+
+            <br>
+
+            <small>
+                Mk7 · 1.6 EcoBoost ·
+                182 bhp · Manual · Petrol
+            </small>
+
+        </div>
+
+    </div>
+
+
+    <!-- NAVIGATION -->
+
+    <div class="btnrow">
+
+        <button
+            class="btn secondary"
+            onclick="go(1)"
+        >
+            ← BACK
+        </button>
+
+        <button
+            class="btn"
+            onclick="go(3)"
+        >
+            CONTINUE →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- PAGE 3 -->
+<!-- GOALS -->
+<!-- ========================= -->
+
+<section class="page" id="p3">
+
+    <div class="eyebrow">
+        STEP 2 · YOUR GOALS
+    </div>
+
+    <h1>
+        What do you want
+        from your car?
+    </h1>
+
+    <p>
+        Select all that apply.
+    </p>
+
+
+    <div class="grid">
+
+
+        <div
+            class="option"
+            onclick="pick(this)"
+        >
+
+            <i class="tick">
+                ✓
+            </i>
+
+            <div class="pic">
+                ⚡
+            </div>
+
+            <b>
+                More Power
+            </b>
+
+        </div>
+
+
+        <div
+            class="option"
+            onclick="pick(this)"
+        >
+
+            <i class="tick">
+                ✓
+            </i>
+
+            <div class="pic">
+                🛞
+            </div>
+
+            <b>
+                Better Handling
+            </b>
+
+        </div>
+
+
+        <div
+            class="option"
+            onclick="pick(this)"
+        >
+
+            <i class="tick">
+                ✓
+            </i>
+
+            <div class="pic">
+                🔊
+            </div>
+
+            <b>
+                Better Sound
+            </b>
+
+        </div>
+
+
+        <div
+            class="option"
+            onclick="pick(this)"
+        >
+
+            <i class="tick">
+                ✓
+            </i>
+
+            <div class="pic">
+                ✨
+            </div>
+
+            <b>
+                Better Looks
+            </b>
+
+        </div>
+
+
+        <div
+            class="option"
+            onclick="pick(this)"
+        >
+
+            <i class="tick">
+                ✓
+            </i>
+
+            <div class="pic">
+                🏁
+            </div>
+
+            <b>
+                Track Use
+            </b>
+
+        </div>
+
+
+        <div
+            class="option"
+            onclick="pick(this)"
+        >
+
+            <i class="tick">
+                ✓
+            </i>
+
+            <div class="pic">
+                🚗
+            </div>
+
+            <b>
+                Fast Road
+            </b>
+
+        </div>
+
+    </div>
+
+
+    <div class="selection">
+
+        Your selection:
+
+        <span id="sel">
+            Nothing selected yet
+        </span>
+
+    </div>
+
+
+    <div class="btnrow">
+
+        <button
+            class="btn secondary"
+            onclick="go(2)"
+        >
+            ← BACK
+        </button>
+
+        <button
+            class="btn"
+            onclick="go(4)"
+        >
+            CONTINUE →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- PAGE 4 -->
+<!-- BUDGET -->
+<!-- ========================= -->
+
+<section class="page" id="p4">
+
+    <div class="eyebrow">
+        STEP 3 · YOUR BUDGET
+    </div>
+
+    <h1>
+        What's your budget?
+    </h1>
+
+    <p>
+        Select a rough budget for parts.
+    </p>
+
+
+    <div class="budget">
+
+
+        <button onclick="bud(this)">
+
+            £500
+
+            <span>
+                Entry level upgrades
+            </span>
+
+        </button>
+
+
+        <button onclick="bud(this)">
+
+            £1,000
+
+            <span>
+                Popular starting point
+            </span>
+
+        </button>
+
+
+        <button onclick="bud(this)">
+
+            £2,000
+
+            <span>
+                Great gains for the money
+            </span>
+
+        </button>
+
+
+        <button onclick="bud(this)">
+
+            £3,000
+
+            <span>
+                Serious performance
+            </span>
+
+        </button>
+
+
+        <button onclick="bud(this)">
+
+            £5,000+
+
+            <span>
+                No limits
+            </span>
+
+        </button>
+
+
+    </div>
+
+
+    <div class="note">
+
+        You can always adjust your build later.
+        We'll suggest the best options for
+        your goals.
+
+    </div>
+
+
+    <div class="btnrow">
+
+        <button
+            class="btn secondary"
+            onclick="go(3)"
+        >
+            ← BACK
+        </button>
+
+        <button
+            class="btn"
+            onclick="go(5)"
+        >
+            CREATE MY BUILD →
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- PAGE 5 -->
+<!-- BUILD -->
+<!-- ========================= -->
+
+<section class="page" id="p5">
+
+    <div class="eyebrow">
+        STEP 4 · YOUR BUILD
+    </div>
+
+
+    <div class="buildHeader">
+
+        <div class="buildCar">
+
+            2016<br>
+            FIESTA ST
+
+        </div>
+
+        <div>
+
+            <h2>
+                Your Bdog Build
+            </h2>
+
+            <span style="color:#999;font-size:12px">
+
+                Mk7 · 1.6 EcoBoost
+
+            </span>
+
+        </div>
+
+    </div>
+
+
+    <div class="tags">
+
+        <span class="tag">
+            More Power
+        </span>
+
+        <span class="tag">
+            Handling
+        </span>
+
+        <span class="tag">
+            Fast Road
+        </span>
+
+        <span class="tag">
+            £2,000 Budget
+        </span>
+
+    </div>
+
+
+    <!-- PART 1 -->
+
+    <div class="part">
+
+        <div class="partImg">
+            ▤
+        </div>
+
+        <div class="partInfo">
+
+            <b>
+                Performance Intercooler
+            </b>
+
+            <span>
+                Lower temperatures
+                & improve consistency
+            </span>
+
+        </div>
+
+        <strong class="price">
+            £289
+        </strong>
+
+    </div>
+
+
+    <!-- PART 2 -->
+
+    <div class="part">
+
+        <div class="partImg">
+            ◉
+        </div>
+
+        <div class="partInfo">
+
+            <b>
+                Stage 1 Calibration
+            </b>
+
+            <span>
+                Matched to supporting
+                modifications
+            </span>
+
+        </div>
+
+        <strong class="price">
+            £550
+        </strong>
+
+    </div>
+
+
+    <!-- PART 3 -->
+
+    <div class="part">
+
+        <div class="partImg">
+            ≋
+        </div>
+
+        <div class="partInfo">
+
+            <b>
+                Cat-Back Exhaust
+            </b>
+
+            <span>
+                Improved sound and flow
+            </span>
+
+        </div>
+
+        <strong class="price">
+            £699
+        </strong>
+
+    </div>
+
+
+    <!-- PART 4 -->
+
+    <div class="part">
+
+        <div class="partImg">
+            ⌁
+        </div>
+
+        <div class="partInfo">
+
+            <b>
+                Performance Springs
+            </b>
+
+            <span>
+                Sharper handling
+                and stance
+            </span>
+
+        </div>
+
+        <strong class="price">
+            £250
+        </strong>
+
+    </div>
+
+
+    <!-- PART 5 -->
+
+    <div class="part">
+
+        <div class="partImg">
+            ●
+        </div>
+
+        <div class="partInfo">
+
+            <b>
+                Performance Brake Pads
+            </b>
+
+            <span>
+                More consistent
+                stopping power
+            </span>
+
+        </div>
+
+        <strong class="price">
+            £180
+        </strong>
+
+    </div>
+
+
+    <!-- TOTALS -->
+
+    <div class="total">
+
+        <span>
+            Estimated parts total
+        </span>
+
+        <b>
+            £1,968
+        </b>
+
+    </div>
+
+
+    <div class="total">
+
+        <span>
+            Estimated fitting
+        </span>
+
+        <b>
+            £350
+        </b>
+
+    </div>
+
+
+    <div class="total">
+
+        <span>
+            Estimated total
+        </span>
+
+        <b>
+            £2,318
+        </b>
+
+    </div>
+
+
+    <!-- NAV -->
+
+    <div class="btnrow">
+
+        <
