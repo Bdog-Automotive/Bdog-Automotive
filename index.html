@@ -4,18 +4,24 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>BDOG Automotive | Build Your Car</title>
+<title>BDOG Automotive</title>
 
 <style>
+
+/* =========================
+   RESET
+========================= */
 
 * {
     box-sizing: border-box;
 }
 
+html,
 body {
     margin: 0;
+    padding: 0;
     background: #080a0d;
-    color: white;
+    color: #ffffff;
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -29,18 +35,21 @@ button {
     cursor: pointer;
 }
 
+
 /* =========================
    HEADER
 ========================= */
 
 .header {
     height: 65px;
+    background: #080a0d;
     border-bottom: 1px solid #292d33;
+
     display: flex;
     align-items: center;
     justify-content: space-between;
+
     padding: 0 22px;
-    background: #080a0d;
 }
 
 .logo {
@@ -55,8 +64,9 @@ button {
 }
 
 .menu {
-    font-size: 27px;
+    font-size: 26px;
 }
+
 
 /* =========================
    PAGE SYSTEM
@@ -72,10 +82,12 @@ button {
 }
 
 .container {
+    width: 100%;
     max-width: 1050px;
-    margin: auto;
+    margin: 0 auto;
     padding: 30px 20px 60px;
 }
+
 
 /* =========================
    PROGRESS
@@ -85,6 +97,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
+
     margin-bottom: 35px;
 }
 
@@ -96,14 +109,19 @@ button {
 .circle {
     width: 32px;
     height: 32px;
+
     border-radius: 50%;
+
     border: 2px solid #555;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     font-size: 13px;
     font-weight: bold;
-    color: #999;
+
+    color: #888;
 }
 
 .step.active .circle,
@@ -114,9 +132,11 @@ button {
 }
 
 .step-label {
-    font-size: 12px;
     margin-left: 8px;
-    color: #888;
+
+    font-size: 12px;
+
+    color: #777;
 }
 
 .step.active .step-label,
@@ -127,13 +147,16 @@ button {
 .line {
     width: 55px;
     height: 2px;
+
     background: #333;
+
     margin: 0 10px;
 }
 
 .line.active {
     background: #ff2d2d;
 }
+
 
 /* =========================
    TYPOGRAPHY
@@ -155,36 +178,6 @@ h2 {
     margin-bottom: 30px;
 }
 
-/* =========================
-   HERO
-========================= */
-
-.hero {
-    text-align: center;
-    padding: 45px 20px;
-}
-
-.hero h1 {
-    font-size: 48px;
-}
-
-.hero h1 span {
-    color: #ff2d2d;
-}
-
-.hero p {
-    color: #aaa;
-    max-width: 600px;
-    margin: 15px auto 30px;
-    line-height: 1.6;
-}
-
-.hero-buttons {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-}
 
 /* =========================
    BUTTONS
@@ -192,8 +185,10 @@ h2 {
 
 .btn {
     border: none;
-    padding: 15px 25px;
     border-radius: 8px;
+
+    padding: 15px 25px;
+
     font-size: 15px;
     font-weight: bold;
 }
@@ -209,8 +204,9 @@ h2 {
 
 .btn-secondary {
     background: transparent;
-    border: 1px solid #555;
     color: white;
+
+    border: 1px solid #555;
 }
 
 .btn-secondary:hover {
@@ -220,18 +216,57 @@ h2 {
 .navigation {
     display: flex;
     justify-content: space-between;
+
     margin-top: 30px;
 }
 
+
 /* =========================
-   CAR SEARCH
+   HOME
+========================= */
+
+.hero {
+    text-align: center;
+    padding: 70px 20px;
+}
+
+.hero h1 {
+    font-size: 52px;
+}
+
+.hero h1 span {
+    color: #ff2d2d;
+}
+
+.hero p {
+    max-width: 650px;
+
+    margin: 15px auto 30px;
+
+    color: #aaa;
+
+    line-height: 1.6;
+}
+
+.hero-buttons {
+    display: flex;
+    justify-content: center;
+}
+
+
+/* =========================
+   SEARCH
 ========================= */
 
 .search-card {
     background: #101318;
+
     border: 1px solid #292d33;
+
     border-radius: 12px;
+
     padding: 25px;
+
     margin-bottom: 25px;
 }
 
@@ -242,22 +277,30 @@ h2 {
 
 .reg-input {
     flex: 1;
+
     background: #ffd52e;
     color: #111;
+
     border: none;
     border-radius: 7px;
+
     padding: 16px;
+
     font-size: 18px;
     font-weight: bold;
+
     text-transform: uppercase;
 }
 
 .search-button {
     background: #ff2d2d;
     color: white;
+
     border: none;
     border-radius: 7px;
+
     padding: 0 25px;
+
     font-weight: bold;
 }
 
@@ -267,34 +310,45 @@ h2 {
 
 .manual-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
     gap: 12px;
 }
 
 select {
     width: 100%;
+
     padding: 14px;
+
     background: #171a20;
+
     border: 1px solid #3b4048;
+
     color: white;
+
     border-radius: 7px;
 }
 
-select:disabled {
-    opacity: .5;
-}
 
 /* =========================
-   VEHICLE RESULT
+   VEHICLE
 ========================= */
 
 .vehicle-result {
     display: none;
+
     background: #11151a;
+
     border: 1px solid #333;
+
     border-radius: 12px;
+
     padding: 20px;
+
     align-items: center;
+
     gap: 20px;
 }
 
@@ -305,16 +359,26 @@ select:disabled {
 .car-image {
     width: 180px;
     height: 110px;
-    background: linear-gradient(135deg,#222,#080808);
+
+    background:
+        linear-gradient(
+            135deg,
+            #252930,
+            #080808
+        );
+
     border-radius: 8px;
+
     display: flex;
     align-items: center;
     justify-content: center;
+
     font-size: 48px;
 }
 
 .vehicle-info h3 {
     margin: 0 0 8px;
+
     font-size: 20px;
 }
 
@@ -323,24 +387,34 @@ select:disabled {
     margin: 4px 0;
 }
 
+
 /* =========================
    GOALS
 ========================= */
 
 .goal-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+
+    grid-template-columns:
+        repeat(3, 1fr);
+
     gap: 15px;
 }
 
 .goal {
     position: relative;
+
     min-height: 145px;
+
     border: 1px solid #363b42;
+
     background: #11151a;
+
     border-radius: 10px;
+
     padding: 20px;
-    transition: .2s;
+
+    transition: 0.2s;
 }
 
 .goal:hover {
@@ -349,11 +423,13 @@ select:disabled {
 
 .goal.selected {
     border: 2px solid #ff2d2d;
+
     background: #171014;
 }
 
 .goal-icon {
     font-size: 35px;
+
     margin-bottom: 12px;
 }
 
@@ -363,19 +439,27 @@ select:disabled {
 
 .goal p {
     color: #888;
+
     font-size: 13px;
+
     margin: 0;
 }
 
 .tick {
     display: none;
+
     position: absolute;
+
     top: 10px;
     right: 10px;
+
     background: #ff2d2d;
+
     border-radius: 50%;
+
     width: 23px;
     height: 23px;
+
     align-items: center;
     justify-content: center;
 }
@@ -384,21 +468,28 @@ select:disabled {
     display: flex;
 }
 
+
 /* =========================
    BUDGET
 ========================= */
 
 .budget-list {
     display: grid;
+
     gap: 12px;
 }
 
 .budget {
     border: 1px solid #3a3e45;
+
     background: #11151a;
+
     border-radius: 9px;
+
     padding: 20px;
+
     display: flex;
+
     justify-content: space-between;
     align-items: center;
 }
@@ -409,6 +500,7 @@ select:disabled {
 
 .budget-price {
     font-size: 21px;
+
     font-weight: bold;
 }
 
@@ -416,55 +508,82 @@ select:disabled {
     color: #888;
 }
 
+
 /* =========================
    BUILD
 ========================= */
 
 .build-header {
     background: #11151a;
+
     border: 1px solid #292d33;
+
     padding: 22px;
+
     border-radius: 12px;
+
     margin-bottom: 20px;
+}
+
+.build-header strong {
+    font-size: 20px;
 }
 
 .tags {
     display: flex;
+
     gap: 8px;
+
     flex-wrap: wrap;
+
     margin-top: 12px;
 }
 
 .tag {
     background: #252a31;
+
     padding: 7px 11px;
+
     border-radius: 20px;
+
     font-size: 12px;
 }
 
 .part-list {
     display: grid;
+
     gap: 12px;
 }
 
 .part {
     background: #11151a;
+
     border: 1px solid #30353c;
+
     border-radius: 10px;
+
     padding: 16px;
+
     display: flex;
+
     align-items: center;
+
     gap: 15px;
 }
 
 .part-image {
     width: 95px;
     height: 75px;
+
     border-radius: 7px;
+
     background: #20242a;
+
     display: flex;
+
     align-items: center;
     justify-content: center;
+
     font-size: 34px;
 }
 
@@ -474,25 +593,38 @@ select:disabled {
 
 .part-info h3 {
     margin: 0 0 5px;
+
     font-size: 16px;
 }
 
 .part-info p {
     color: #888;
+
     margin: 0;
+
     font-size: 13px;
 }
 
 .part-price {
     font-size: 17px;
+
     font-weight: bold;
 }
 
+
+/* =========================
+   WHY
+========================= */
+
 .why {
     margin-top: 20px;
+
     background: #11151a;
+
     border: 1px solid #30353c;
+
     border-radius: 10px;
+
     padding: 20px;
 }
 
@@ -502,26 +634,69 @@ select:disabled {
 
 .why ul {
     padding-left: 20px;
+
     color: #bbb;
+
     line-height: 1.8;
 }
+
+
+/* =========================
+   TOTAL
+========================= */
+
+.total {
+    margin-top: 20px;
+
+    padding: 20px;
+
+    background: #15191f;
+
+    border-radius: 10px;
+}
+
+.total-row {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin: 8px 0;
+}
+
+.total-main {
+    font-size: 22px;
+
+    font-weight: bold;
+
+    padding-top: 12px;
+
+    border-top: 1px solid #333;
+}
+
 
 /* =========================
    GARAGES
 ========================= */
 
 .garage-section {
-    margin-top: 20px;
+    margin-top: 30px;
 }
 
 .garage {
     background: #11151a;
+
     border: 1px solid #30353c;
+
     border-radius: 10px;
+
     padding: 16px;
+
     margin-bottom: 10px;
+
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
 }
 
@@ -531,38 +706,16 @@ select:disabled {
 
 .view {
     color: #ff2d2d;
+
     font-weight: bold;
 }
 
-/* =========================
-   TOTAL
-========================= */
-
-.total {
-    margin-top: 20px;
-    padding: 20px;
-    background: #15191f;
-    border-radius: 10px;
-}
-
-.total-row {
-    display: flex;
-    justify-content: space-between;
-    margin: 8px 0;
-}
-
-.total-main {
-    font-size: 22px;
-    font-weight: bold;
-    padding-top: 12px;
-    border-top: 1px solid #333;
-}
 
 /* =========================
-   RESPONSIVE
+   MOBILE
 ========================= */
 
-@media(max-width:700px) {
+@media (max-width: 700px) {
 
     .container {
         padding: 20px 14px 50px;
@@ -572,13 +725,20 @@ select:disabled {
         font-size: 27px;
     }
 
+    .hero {
+        padding: 45px 10px;
+    }
+
     .hero h1 {
-        font-size: 36px;
+        font-size: 38px;
     }
 
     .progress {
         justify-content: flex-start;
+
         overflow-x: auto;
+
+        padding-bottom: 5px;
     }
 
     .step-label {
@@ -607,6 +767,7 @@ select:disabled {
 
     .vehicle-result {
         flex-direction: column;
+
         align-items: flex-start;
     }
 
@@ -619,54 +780,88 @@ select:disabled {
     }
 
     .part-image {
-        width: 75px;
-        height: 65px;
+        width: 70px;
+        height: 60px;
     }
 
-    .part-price {
-        font-size: 15px;
-    }
+}
 
+
+/* =========================
+   EMPTY BUILD
+========================= */
+
+.empty-build {
+    padding: 30px;
+
+    text-align: center;
+
+    background: #11151a;
+
+    border: 1px solid #30353c;
+
+    border-radius: 10px;
+
+    color: #888;
 }
 
 </style>
 </head>
 
+
 <body>
 
+
+<!-- =========================
+     HEADER
+========================= -->
+
 <header class="header">
+
     <div class="logo">
         BDOG <span>AUTOMOTIVE</span>
     </div>
 
-    <div class="menu">☰</div>
+    <div class="menu">
+        ☰
+    </div>
+
 </header>
 
 
-<!-- =========================
-     PAGE 0
-========================= -->
 
-<section class="page active" id="page0">
+<!-- ==================================================
+     PAGE 0 — HOME
+================================================== -->
+
+<section
+    class="page active"
+    id="page0"
+>
 
     <div class="container">
 
         <div class="hero">
 
             <h1>
-                BUILD YOUR <span>CAR.</span>
+                BUILD YOUR
+                <span>CAR.</span>
             </h1>
 
             <p>
-                Tell us your car, your goals and your budget.
-                We'll create a personalised modification plan
-                using proven parts and real enthusiast knowledge.
+                Tell us what you drive,
+                what you want from it and
+                what you want to spend.
+                BDOG will build your
+                personalised modification plan.
             </p>
 
             <div class="hero-buttons">
 
-                <button class="btn btn-primary"
-                        onclick="goToPage(1)">
+                <button
+                    class="btn btn-primary"
+                    onclick="goToPage(1)"
+                >
                     START BUILDING →
                 </button>
 
@@ -679,51 +874,96 @@ select:disabled {
 </section>
 
 
-<!-- =========================
-     PAGE 1
-========================= -->
 
-<section class="page" id="page1">
+<!-- ==================================================
+     PAGE 1 — YOUR CAR
+================================================== -->
+
+<section
+    class="page"
+    id="page1"
+>
 
 <div class="container">
 
+
     <div class="progress">
+
         <div class="step active">
-            <div class="circle">1</div>
-            <div class="step-label">Your Car</div>
+
+            <div class="circle">
+                1
+            </div>
+
+            <div class="step-label">
+                Your Car
+            </div>
+
         </div>
+
 
         <div class="line"></div>
 
+
         <div class="step">
-            <div class="circle">2</div>
-            <div class="step-label">Your Goals</div>
+
+            <div class="circle">
+                2
+            </div>
+
+            <div class="step-label">
+                Your Goals
+            </div>
+
         </div>
+
 
         <div class="line"></div>
 
+
         <div class="step">
-            <div class="circle">3</div>
-            <div class="step-label">Your Budget</div>
+
+            <div class="circle">
+                3
+            </div>
+
+            <div class="step-label">
+                Your Budget
+            </div>
+
         </div>
+
 
         <div class="line"></div>
 
+
         <div class="step">
-            <div class="circle">4</div>
-            <div class="step-label">Your Build</div>
+
+            <div class="circle">
+                4
+            </div>
+
+            <div class="step-label">
+                Your Build
+            </div>
+
         </div>
+
     </div>
 
 
-    <h1>What's your car?</h1>
+    <h1>
+        What's your car?
+    </h1>
 
     <p class="subtitle">
-        Enter your registration and we'll identify your vehicle automatically.
+        Enter your registration and we'll identify
+        your vehicle automatically.
     </p>
 
 
     <div class="search-card">
+
 
         <div class="search-row">
 
@@ -734,9 +974,11 @@ select:disabled {
                 maxlength="8"
             >
 
+
             <button
                 class="search-button"
-                onclick="findCar()">
+                onclick="findCar()"
+            >
                 FIND MY CAR
             </button>
 
@@ -749,24 +991,62 @@ select:disabled {
                 Or search manually
             </p>
 
+
             <div class="manual-grid">
 
+
                 <select id="make">
-                    <option value="">Make</option>
-                    <option>Ford</option>
-                    <option>Volkswagen</option>
-                    <option>BMW</option>
-                    <option>Honda</option>
-                    <option>Audi</option>
+
+                    <option value="">
+                        Make
+                    </option>
+
+                    <option>
+                        Ford
+                    </option>
+
+                    <option>
+                        Volkswagen
+                    </option>
+
+                    <option>
+                        BMW
+                    </option>
+
+                    <option>
+                        Audi
+                    </option>
+
+                    <option>
+                        Honda
+                    </option>
+
                 </select>
 
-                <select id="model" disabled>
-                    <option value="">Model</option>
+
+                <select
+                    id="model"
+                    disabled
+                >
+
+                    <option value="">
+                        Model
+                    </option>
+
                 </select>
 
-                <select id="engine" disabled>
-                    <option value="">Engine</option>
+
+                <select
+                    id="engine"
+                    disabled
+                >
+
+                    <option value="">
+                        Engine
+                    </option>
+
                 </select>
+
 
             </div>
 
@@ -775,488 +1055,759 @@ select:disabled {
     </div>
 
 
-    <div class="vehicle-result" id="vehicleResult">
+
+    <div
+        class="vehicle-result"
+        id="vehicleResult"
+    >
 
         <div class="car-image">
             🚗
         </div>
 
+
         <div class="vehicle-info">
 
             <h3 id="vehicleName">
-                2016 Ford Fiesta ST
+                Vehicle
             </h3>
 
             <p id="vehicleGeneration">
-                Mk7
+                Generation
             </p>
 
             <p id="vehicleEngine">
-                1.6 EcoBoost • 182 bhp
+                Engine
             </p>
 
-            <p>
-                Manual • Petrol
+            <p id="vehicleGearbox">
+                Gearbox
             </p>
 
         </div>
 
     </div>
+
 
 
     <div class="navigation">
 
         <button
             class="btn btn-secondary"
-            onclick="goToPage(0)">
+            onclick="goToPage(0)"
+        >
             ← BACK
         </button>
 
+
         <button
             class="btn btn-primary"
-            onclick="goToPage(2)">
+            onclick="continueFromVehicle()"
+        >
             CONTINUE →
         </button>
 
     </div>
+
 
 </div>
 
 </section>
 
 
-<!-- =========================
-     PAGE 2
-========================= -->
 
-<section class="page" id="page2">
+<!-- ==================================================
+     PAGE 2 — GOALS
+================================================== -->
+
+<section
+    class="page"
+    id="page2"
+>
 
 <div class="container">
 
+
     <div class="progress">
+
         <div class="step completed">
-            <div class="circle">✓</div>
-            <div class="step-label">Your Car</div>
+
+            <div class="circle">
+                ✓
+            </div>
+
+            <div class="step-label">
+                Your Car
+            </div>
+
         </div>
+
 
         <div class="line active"></div>
 
+
         <div class="step active">
-            <div class="circle">2</div>
-            <div class="step-label">Your Goals</div>
+
+            <div class="circle">
+                2
+            </div>
+
+            <div class="step-label">
+                Your Goals
+            </div>
+
         </div>
+
 
         <div class="line"></div>
 
+
         <div class="step">
-            <div class="circle">3</div>
-            <div class="step-label">Your Budget</div>
+
+            <div class="circle">
+                3
+            </div>
+
+            <div class="step-label">
+                Your Budget
+            </div>
+
         </div>
+
 
         <div class="line"></div>
 
+
         <div class="step">
-            <div class="circle">4</div>
-            <div class="step-label">Your Build</div>
+
+            <div class="circle">
+                4
+            </div>
+
+            <div class="step-label">
+                Your Build
+            </div>
+
         </div>
+
     </div>
 
 
-    <h1>What do you want from your car?</h1>
+
+    <h1>
+        What do you want from your car?
+    </h1>
 
     <p class="subtitle">
         Select everything you're interested in.
     </p>
 
 
+
     <div class="goal-grid">
 
-        <div class="goal" onclick="toggleGoal(this)">
-            <div class="tick">✓</div>
-            <div class="goal-icon">🚀</div>
-            <h3>More Power</h3>
-            <p>Engine performance</p>
+
+        <div
+            class="goal"
+            onclick="toggleGoal(this)"
+            data-goal="More Power"
+        >
+
+            <div class="tick">
+                ✓
+            </div>
+
+            <div class="goal-icon">
+                🚀
+            </div>
+
+            <h3>
+                More Power
+            </h3>
+
+            <p>
+                Engine performance
+            </p>
+
         </div>
 
-        <div class="goal" onclick="toggleGoal(this)">
-            <div class="tick">✓</div>
-            <div class="goal-icon">🏁</div>
-            <h3>Better Handling</h3>
-            <p>Suspension & chassis</p>
+
+
+        <div
+            class="goal"
+            onclick="toggleGoal(this)"
+            data-goal="Better Handling"
+        >
+
+            <div class="tick">
+                ✓
+            </div>
+
+            <div class="goal-icon">
+                🏁
+            </div>
+
+            <h3>
+                Better Handling
+            </h3>
+
+            <p>
+                Suspension & chassis
+            </p>
+
         </div>
 
-        <div class="goal" onclick="toggleGoal(this)">
-            <div class="tick">✓</div>
-            <div class="goal-icon">🔊</div>
-            <h3>Better Sound</h3>
-            <p>Exhaust & induction</p>
+
+
+        <div
+            class="goal"
+            onclick="toggleGoal(this)"
+            data-goal="Better Sound"
+        >
+
+            <div class="tick">
+                ✓
+            </div>
+
+            <div class="goal-icon">
+                🔊
+            </div>
+
+            <h3>
+                Better Sound
+            </h3>
+
+            <p>
+                Exhaust & induction
+            </p>
+
         </div>
 
-        <div class="goal" onclick="toggleGoal(this)">
-            <div class="tick">✓</div>
-            <div class="goal-icon">✨</div>
-            <h3>Better Looks</h3>
-            <p>Exterior styling</p>
+
+
+        <div
+            class="goal"
+            onclick="toggleGoal(this)"
+            data-goal="Better Looks"
+        >
+
+            <div class="tick">
+                ✓
+            </div>
+
+            <div class="goal-icon">
+                ✨
+            </div>
+
+            <h3>
+                Better Looks
+            </h3>
+
+            <p>
+                Exterior styling
+            </p>
+
         </div>
 
-        <div class="goal" onclick="toggleGoal(this)">
-            <div class="tick">✓</div>
-            <div class="goal-icon">🛣️</div>
-            <h3>Fast Road</h3>
-            <p>Road focused setup</p>
+
+
+        <div
+            class="goal"
+            onclick="toggleGoal(this)"
+            data-goal="Fast Road"
+        >
+
+            <div class="tick">
+                ✓
+            </div>
+
+            <div class="goal-icon">
+                🛣️
+            </div>
+
+            <h3>
+                Fast Road
+            </h3>
+
+            <p>
+                Road focused setup
+            </p>
+
         </div>
 
-        <div class="goal" onclick="toggleGoal(this)">
-            <div class="tick">✓</div>
-            <div class="goal-icon">🏎️</div>
-            <h3>Track Use</h3>
-            <p>Maximum performance</p>
+
+
+        <div
+            class="goal"
+            onclick="toggleGoal(this)"
+            data-goal="Track Use"
+        >
+
+            <div class="tick">
+                ✓
+            </div>
+
+            <div class="goal-icon">
+                🏎️
+            </div>
+
+            <h3>
+                Track Use
+            </h3>
+
+            <p>
+                Maximum performance
+            </p>
+
         </div>
+
 
     </div>
+
 
 
     <div class="navigation">
 
         <button
             class="btn btn-secondary"
-            onclick="goToPage(1)">
+            onclick="goToPage(1)"
+        >
             ← BACK
         </button>
 
+
         <button
             class="btn btn-primary"
-            onclick="goToPage(3)">
+            onclick="continueFromGoals()"
+        >
             CONTINUE →
         </button>
 
     </div>
 
+
 </div>
 
 </section>
 
 
-<!-- =========================
-     PAGE 3
-========================= -->
 
-<section class="page" id="page3">
+<!-- ==================================================
+     PAGE 3 — BUDGET
+================================================== -->
+
+<section
+    class="page"
+    id="page3"
+>
 
 <div class="container">
 
+
     <div class="progress">
+
         <div class="step completed">
-            <div class="circle">✓</div>
-            <div class="step-label">Your Car</div>
+
+            <div class="circle">
+                ✓
+            </div>
+
+            <div class="step-label">
+                Your Car
+            </div>
+
         </div>
+
 
         <div class="line active"></div>
 
+
         <div class="step completed">
-            <div class="circle">✓</div>
-            <div class="step-label">Your Goals</div>
+
+            <div class="circle">
+                ✓
+            </div>
+
+            <div class="step-label">
+                Your Goals
+            </div>
+
         </div>
 
+
         <div class="line active"></div>
+
 
         <div class="step active">
-            <div class="circle">3</div>
-            <div class="step-label">Your Budget</div>
+
+            <div class="circle">
+                3
+            </div>
+
+            <div class="step-label">
+                Your Budget
+            </div>
+
         </div>
+
 
         <div class="line"></div>
 
+
         <div class="step">
-            <div class="circle">4</div>
-            <div class="step-label">Your Build</div>
+
+            <div class="circle">
+                4
+            </div>
+
+            <div class="step-label">
+                Your Build
+            </div>
+
         </div>
+
     </div>
 
 
-    <h1>What's your budget?</h1>
+
+    <h1>
+        What's your budget?
+    </h1>
+
 
     <p class="subtitle">
-        Select a rough budget for parts. Fitting can be estimated separately.
+        Choose how much you'd like to spend on parts.
     </p>
+
 
 
     <div class="budget-list">
 
-        <div class="budget" onclick="selectBudget(this)">
+
+        <div
+            class="budget"
+            onclick="selectBudget(this)"
+            data-budget="500"
+        >
+
             <div>
-                <div class="budget-price">£500</div>
+
+                <div class="budget-price">
+                    £500
+                </div>
+
                 <div class="budget-description">
                     Entry level upgrades
                 </div>
+
             </div>
+
         </div>
 
-        <div class="budget" onclick="selectBudget(this)">
+
+
+        <div
+            class="budget"
+            onclick="selectBudget(this)"
+            data-budget="1000"
+        >
+
             <div>
-                <div class="budget-price">£1,000</div>
+
+                <div class="budget-price">
+                    £1,000
+                </div>
+
                 <div class="budget-description">
                     Popular starting point
                 </div>
+
             </div>
+
         </div>
 
-        <div class="budget" onclick="selectBudget(this)">
+
+
+        <div
+            class="budget"
+            onclick="selectBudget(this)"
+            data-budget="2000"
+        >
+
             <div>
-                <div class="budget-price">£2,000</div>
+
+                <div class="budget-price">
+                    £2,000
+                </div>
+
                 <div class="budget-description">
                     Great gains for the money
                 </div>
+
             </div>
+
         </div>
 
-        <div class="budget" onclick="selectBudget(this)">
+
+
+        <div
+            class="budget"
+            onclick="selectBudget(this)"
+            data-budget="3000"
+        >
+
             <div>
-                <div class="budget-price">£3,000</div>
+
+                <div class="budget-price">
+                    £3,000
+                </div>
+
                 <div class="budget-description">
                     Serious performance
                 </div>
+
             </div>
+
         </div>
 
-        <div class="budget" onclick="selectBudget(this)">
+
+
+        <div
+            class="budget"
+            onclick="selectBudget(this)"
+            data-budget="5000"
+        >
+
             <div>
-                <div class="budget-price">£5,000+</div>
+
+                <div class="budget-price">
+                    £5,000+
+                </div>
+
                 <div class="budget-description">
                     No limits
                 </div>
+
             </div>
+
         </div>
 
+
     </div>
+
 
 
     <div class="navigation">
 
         <button
             class="btn btn-secondary"
-            onclick="goToPage(2)">
+            onclick="goToPage(2)"
+        >
             ← BACK
         </button>
 
+
         <button
             class="btn btn-primary"
-            onclick="goToPage(4)">
+            onclick="createBuild()"
+        >
             CREATE MY BUILD →
         </button>
 
     </div>
+
 
 </div>
 
 </section>
 
 
-<!-- =========================
-     PAGE 4
-========================= -->
 
-<section class="page" id="page4">
+<!-- ==================================================
+     PAGE 4 — BUILD
+================================================== -->
+
+<section
+    class="page"
+    id="page4"
+>
 
 <div class="container">
+
 
     <div class="progress">
 
         <div class="step completed">
-            <div class="circle">✓</div>
-            <div class="step-label">Your Car</div>
+
+            <div class="circle">
+                ✓
+            </div>
+
+            <div class="step-label">
+                Your Car
+            </div>
+
         </div>
 
+
         <div class="line active"></div>
+
 
         <div class="step completed">
-            <div class="circle">✓</div>
-            <div class="step-label">Your Goals</div>
+
+            <div class="circle">
+                ✓
+            </div>
+
+            <div class="step-label">
+                Your Goals
+            </div>
+
         </div>
 
+
         <div class="line active"></div>
+
 
         <div class="step completed">
-            <div class="circle">✓</div>
-            <div class="step-label">Your Budget</div>
+
+            <div class="circle">
+                ✓
+            </div>
+
+            <div class="step-label">
+                Your Budget
+            </div>
+
         </div>
 
+
         <div class="line active"></div>
+
 
         <div class="step active">
-            <div class="circle">4</div>
-            <div class="step-label">Your Build</div>
+
+            <div class="circle">
+                4
+            </div>
+
+            <div class="step-label">
+                Your Build
+            </div>
+
         </div>
 
     </div>
+
 
 
     <div class="build-header">
 
-        <h2>Your BDOG Build</h2>
 
-        <strong>
-            2016 Ford Fiesta ST
+        <h2>
+            Your BDOG Build
+        </h2>
+
+
+        <strong id="buildVehicle">
+            Your Vehicle
         </strong>
 
-        <p style="color:#888;">
-            Mk7 • 1.6 EcoBoost • Manual
+
+        <p
+            id="buildVehicleDetails"
+            style="color:#888;"
+        >
+            Vehicle details
         </p>
 
-        <div class="tags">
-            <div class="tag">More Power</div>
-            <div class="tag">Handling</div>
-            <div class="tag">Better Sound</div>
-            <div class="tag">Fast Road</div>
-            <div class="tag">£2,000 Budget</div>
+
+        <div
+            class="tags"
+            id="buildTags"
+        >
         </div>
+
 
     </div>
 
 
-    <div class="part-list">
 
-
-        <div class="part">
-
-            <div class="part-image">
-                ❄️
-            </div>
-
-            <div class="part-info">
-                <h3>Performance Intercooler</h3>
-                <p>
-                    AIRTEC Stage 1
-                </p>
-            </div>
-
-            <div class="part-price">
-                £289
-            </div>
-
-        </div>
-
-
-        <div class="part">
-
-            <div class="part-image">
-                💻
-            </div>
-
-            <div class="part-info">
-                <h3>Stage 1 Calibration</h3>
-                <p>
-                    Performance ECU calibration
-                </p>
-            </div>
-
-            <div class="part-price">
-                £550
-            </div>
-
-        </div>
-
-
-        <div class="part">
-
-            <div class="part-image">
-                🔊
-            </div>
-
-            <div class="part-info">
-                <h3>Cat-Back Exhaust</h3>
-                <p>
-                    Performance exhaust system
-                </p>
-            </div>
-
-            <div class="part-price">
-                £699
-            </div>
-
-        </div>
-
-
-        <div class="part">
-
-            <div class="part-image">
-                🛞
-            </div>
-
-            <div class="part-info">
-                <h3>Lowering Springs</h3>
-                <p>
-                    Fast-road suspension setup
-                </p>
-            </div>
-
-            <div class="part-price">
-                £250
-            </div>
-
-        </div>
-
-
-        <div class="part">
-
-            <div class="part-image">
-                🛑
-            </div>
-
-            <div class="part-info">
-                <h3>Performance Brake Pads</h3>
-                <p>
-                    Fast-road braking upgrade
-                </p>
-            </div>
-
-            <div class="part-price">
-                £180
-            </div>
-
-        </div>
-
+    <div
+        class="part-list"
+        id="partList"
+    >
     </div>
+
 
 
     <div class="total">
 
-        <div class="total-row">
-            <span>Estimated Parts Total</span>
-            <strong>£1,968</strong>
-        </div>
 
         <div class="total-row">
-            <span>Estimated Fitting</span>
-            <strong>£350</strong>
+
+            <span>
+                Parts
+            </span>
+
+            <strong id="partsTotal">
+                £0
+            </strong>
+
         </div>
+
+
+        <div class="total-row">
+
+            <span>
+                Estimated fitting
+            </span>
+
+            <strong id="fittingTotal">
+                £0
+            </strong>
+
+        </div>
+
 
         <div class="total-row total-main">
-            <span>Estimated Total</span>
-            <strong>£2,318</strong>
+
+            <span>
+                Estimated total
+            </span>
+
+            <strong id="grandTotal">
+                £0
+            </strong>
+
         </div>
+
 
     </div>
 
 
+
     <div class="why">
 
-        <h3>Why these parts?</h3>
+        <h3>
+            Why these parts?
+        </h3>
 
-        <ul>
-            <li>Designed specifically for this vehicle</li>
-            <li>Compatible with the selected setup</li>
-            <li>Suitable for fast-road use</li>
-            <li>Supported by enthusiast experience</li>
-            <li>Build selected around your goals and budget</li>
+
+        <ul id="whyList">
+
         </ul>
 
     </div>
 
 
+
     <div class="garage-section">
 
-        <h2>Find a BDOG Garage</h2>
+        <h2>
+            Find a BDOG Garage
+        </h2>
+
 
         <p class="subtitle">
             Get your build fitted by a trusted performance garage.
@@ -1266,184 +1817,1063 @@ select:disabled {
         <div class="garage">
 
             <div>
-                <strong>BDOG Performance Leicester</strong>
+
+                <strong>
+                    BDOG Performance Leicester
+                </strong>
+
                 <br>
-                <small>12.4 miles away</small>
+
+                <small>
+                    Performance specialists
+                </small>
+
             </div>
 
+
             <div class="view">
-                VIEW →
+                COMING SOON
             </div>
 
         </div>
 
-
-        <div class="garage">
-
-            <div>
-                <strong>Normants Performance</strong>
-                <br>
-                <small>28.7 miles away</small>
-            </div>
-
-            <div class="view">
-                VIEW →
-            </div>
-
-        </div>
-
-
-        <div class="garage">
-
-            <div>
-                <strong>Derby Tuning Specialists</strong>
-                <br>
-                <small>36.1 miles away</small>
-            </div>
-
-            <div class="view">
-                VIEW →
-            </div>
-
-        </div>
 
     </div>
+
 
 
     <div class="navigation">
 
+
         <button
             class="btn btn-secondary"
-            onclick="goToPage(3)">
+            onclick="goToPage(3)"
+        >
             ← BACK
         </button>
 
+
         <button
             class="btn btn-primary"
-            onclick="alert('Build saved — garage quotation system coming next!')">
-            SAVE BUILD / GET A QUOTE →
+            onclick="saveBuild()"
+        >
+            SAVE BUILD
         </button>
 
+
     </div>
+
 
 </div>
 
 </section>
 
 
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
 <script>
 
-/* =========================
+
+/* ==================================================
+   GLOBAL BUILD DATA
+================================================== */
+
+const buildData = {
+
+    vehicle: null,
+
+    goals: [],
+
+    budget: 0
+
+};
+
+
+
+/* ==================================================
    PAGE NAVIGATION
-========================= */
+================================================== */
 
-function goToPage(number) {
+function goToPage(pageNumber) {
 
-    document.querySelectorAll('.page').forEach(page => {
-        page.classList.remove('active');
-    });
 
-    const target = document.getElementById('page' + number);
+    document
+        .querySelectorAll('.page')
+        .forEach(page => {
 
-    if (target) {
-        target.classList.add('active');
+            page.classList.remove('active');
+
+        });
+
+
+    const page =
+        document.getElementById(
+            'page' + pageNumber
+        );
+
+
+    if (page) {
+
+        page.classList.add('active');
+
         window.scrollTo({
             top: 0,
             behavior: 'smooth'
         });
+
     }
+
 }
 
 
-/* =========================
-   REGISTRATION SEARCH
-========================= */
+
+/* ==================================================
+   VEHICLE SEARCH
+================================================== */
 
 function findCar() {
 
-    const reg = document
-        .getElementById('reg')
-        .value
-        .trim()
-        .toUpperCase();
+
+    const input =
+        document.getElementById('reg');
+
+
+    const reg =
+        input.value
+            .trim()
+            .toUpperCase();
+
 
     if (!reg) {
-        alert('Please enter a registration.');
+
+        alert(
+            'Please enter your registration.'
+        );
+
         return;
+
     }
 
 
-    /*
-       DEMO VEHICLE LOOKUP
 
-       Later this will connect to a real
-       UK vehicle registration API.
+    /*
+       TEMPORARY DEMO LOOKUP
+
+       This will later be replaced with
+       the real registration API.
     */
 
-    document.getElementById('make').value = 'Ford';
+
+    buildData.vehicle = {
+
+        year: 2016,
+
+        make: 'Ford',
+
+        model: 'Fiesta ST',
+
+        generation: 'Mk7',
+
+        engine: '1.6 EcoBoost',
+
+        bhp: 182,
+
+        fuel: 'Petrol',
+
+        gearbox: 'Manual',
+
+        registration: reg
+
+    };
 
 
-    const model = document.getElementById('model');
+
+    /* Fill selectors */
+
+    document
+        .getElementById('make')
+        .value = 'Ford';
+
+
+
+    const model =
+        document.getElementById('model');
+
 
     model.disabled = false;
 
+
     model.innerHTML = `
-        <option value="Fiesta">Fiesta</option>
+        <option value="Fiesta ST">
+            Fiesta ST
+        </option>
     `;
 
 
-    const engine = document.getElementById('engine');
+
+    const engine =
+        document.getElementById('engine');
+
 
     engine.disabled = false;
 
+
     engine.innerHTML = `
-        <option value="ST">ST 1.6 EcoBoost (182/200)</option>
+        <option value="1.6 EcoBoost">
+            1.6 EcoBoost
+        </option>
     `;
 
 
-    document.getElementById('vehicleResult')
+
+    /* Display vehicle */
+
+    document
+        .getElementById('vehicleResult')
         .classList.add('show');
 
 
-    document.getElementById('vehicleName')
-        .innerText = '2016 Ford Fiesta ST';
+
+    document
+        .getElementById('vehicleName')
+        .innerText =
+        '2016 Ford Fiesta ST';
 
 
-    document.getElementById('vehicleGeneration')
-        .innerText = 'Mk7 (2013 – 2017)';
+
+    document
+        .getElementById('vehicleGeneration')
+        .innerText =
+        'Mk7';
 
 
-    document.getElementById('vehicleEngine')
-        .innerText = '1.6 EcoBoost • 182 bhp';
+
+    document
+        .getElementById('vehicleEngine')
+        .innerText =
+        '1.6 EcoBoost • 182 bhp';
+
+
+
+    document
+        .getElementById('vehicleGearbox')
+        .innerText =
+        'Manual • Petrol';
 
 }
 
 
-/* =========================
+
+/* ==================================================
+   VEHICLE CONTINUE
+================================================== */
+
+function continueFromVehicle() {
+
+
+    if (!buildData.vehicle) {
+
+        alert(
+            'Please search your registration first.'
+        );
+
+        return;
+
+    }
+
+
+    goToPage(2);
+
+}
+
+
+
+/* ==================================================
    GOALS
-========================= */
+================================================== */
 
 function toggleGoal(element) {
 
-    element.classList.toggle('selected');
+
+    element.classList.toggle(
+        'selected'
+    );
+
+
+    buildData.goals = [];
+
+
+    document
+        .querySelectorAll(
+            '.goal.selected'
+        )
+        .forEach(goal => {
+
+
+            const value =
+                goal.dataset.goal;
+
+
+            if (value) {
+
+                buildData.goals.push(
+                    value
+                );
+
+            }
+
+        });
 
 }
 
 
-/* =========================
+
+/* ==================================================
+   GOALS CONTINUE
+================================================== */
+
+function continueFromGoals() {
+
+
+    if (
+        buildData.goals.length === 0
+    ) {
+
+        alert(
+            'Please select at least one goal.'
+        );
+
+        return;
+
+    }
+
+
+    goToPage(3);
+
+}
+
+
+
+/* ==================================================
    BUDGET
-========================= */
+================================================== */
 
 function selectBudget(element) {
 
-    document.querySelectorAll('.budget')
+
+    document
+        .querySelectorAll('.budget')
         .forEach(item => {
-            item.classList.remove('selected');
+
+            item.classList.remove(
+                'selected'
+            );
+
         });
 
-    element.classList.add('selected');
+
+    element.classList.add(
+        'selected'
+    );
+
+
+    buildData.budget =
+        Number(
+            element.dataset.budget
+        );
 
 }
+
+
+
+/* ==================================================
+   BUILD DATABASE
+================================================== */
+
+const partsDatabase = [
+
+
+    {
+        name:
+            'Performance Intercooler',
+
+        brand:
+            'High-flow performance intercooler',
+
+        price:
+            289,
+
+        icon:
+            '❄️',
+
+        goals:
+            [
+                'More Power',
+                'Fast Road'
+            ]
+
+    },
+
+
+    {
+        name:
+            'Performance ECU Calibration',
+
+        brand:
+            'Stage 1 engine calibration',
+
+        price:
+            550,
+
+        icon:
+            '💻',
+
+        goals:
+            [
+                'More Power',
+                'Fast Road'
+            ]
+
+    },
+
+
+    {
+        name:
+            'Cat-Back Exhaust',
+
+        brand:
+            'Performance exhaust system',
+
+        price:
+            699,
+
+        icon:
+            '🔊',
+
+        goals:
+            [
+                'Better Sound',
+                'More Power',
+                'Fast Road'
+            ]
+
+    },
+
+
+    {
+        name:
+            'Lowering Springs',
+
+        brand:
+            'Fast-road suspension setup',
+
+        price:
+            250,
+
+        icon:
+            '🛞',
+
+        goals:
+            [
+                'Better Handling',
+                'Better Looks',
+                'Fast Road'
+            ]
+
+    },
+
+
+    {
+        name:
+            'Performance Brake Pads',
+
+        brand:
+            'Fast-road braking upgrade',
+
+        price:
+            180,
+
+        icon:
+            '🛑',
+
+        goals:
+            [
+                'Better Handling',
+                'Fast Road',
+                'Track Use'
+            ]
+
+    },
+
+
+    {
+        name:
+            'Performance Air Intake',
+
+        brand:
+            'High-flow induction system',
+
+        price:
+            320,
+
+        icon:
+            '🌪️',
+
+        goals:
+            [
+                'More Power',
+                'Better Sound'
+            ]
+
+    },
+
+
+    {
+        name:
+            'Upgraded Engine Mount',
+
+        brand:
+            'Performance engine mount',
+
+        price:
+            160,
+
+        icon:
+            '🔩',
+
+        goals:
+            [
+                'Better Handling',
+                'Fast Road'
+            ]
+
+    },
+
+
+    {
+        name:
+            'Front Strut Brace',
+
+        brand:
+            'Chassis reinforcement',
+
+        price:
+            190,
+
+        icon:
+            '🔧',
+
+        goals:
+            [
+                'Better Handling',
+                'Track Use'
+            ]
+
+    },
+
+
+    {
+        name:
+            'LED Exterior Lighting',
+
+        brand:
+            'Exterior styling upgrade',
+
+        price:
+            120,
+
+        icon:
+            '💡',
+
+        goals:
+            [
+                'Better Looks'
+            ]
+
+    }
+
+];
+
+
+
+/* ==================================================
+   CREATE BUILD
+================================================== */
+
+function createBuild() {
+
+
+    if (
+        buildData.goals.length === 0
+    ) {
+
+        alert(
+            'Please select at least one goal.'
+        );
+
+        goToPage(2);
+
+        return;
+
+    }
+
+
+
+    if (
+        buildData.budget === 0
+    ) {
+
+        alert(
+            'Please select a budget.'
+        );
+
+        return;
+
+    }
+
+
+
+    generateBuild();
+
+
+    goToPage(4);
+
+}
+
+
+
+/* ==================================================
+   GENERATE BUILD
+================================================== */
+
+function generateBuild() {
+
+
+    const vehicle =
+        buildData.vehicle;
+
+
+    const goals =
+        buildData.goals;
+
+
+    const budget =
+        buildData.budget;
+
+
+
+    /*
+       Find parts which match
+       at least one selected goal.
+    */
+
+    let matchingParts =
+        partsDatabase.filter(
+            part => {
+
+                return part.goals.some(
+                    goal =>
+                        goals.includes(goal)
+                );
+
+            }
+        );
+
+
+
+    /*
+       Remove duplicates.
+    */
+
+    matchingParts =
+        matchingParts.filter(
+            (part, index, array) => {
+
+                return index ===
+                    array.findIndex(
+                        item =>
+                            item.name ===
+                            part.name
+                    );
+
+            }
+        );
+
+
+
+    /*
+       Sort cheapest first.
+    */
+
+    matchingParts.sort(
+        (a, b) =>
+            a.price - b.price
+    );
+
+
+
+    /*
+       Keep build inside budget.
+    */
+
+    const selectedParts = [];
+
+    let runningTotal = 0;
+
+
+    matchingParts.forEach(
+        part => {
+
+            if (
+                runningTotal +
+                part.price
+                <= budget
+            ) {
+
+                selectedParts.push(
+                    part
+                );
+
+                runningTotal +=
+                    part.price;
+
+            }
+
+        }
+    );
+
+
+
+    renderBuild(
+        vehicle,
+        goals,
+        budget,
+        selectedParts
+    );
+
+}
+
+
+
+/* ==================================================
+   RENDER BUILD
+================================================== */
+
+function renderBuild(
+    vehicle,
+    goals,
+    budget,
+    parts
+) {
+
+
+    /*
+       Vehicle
+    */
+
+    document
+        .getElementById(
+            'buildVehicle'
+        )
+        .innerText =
+
+        `${vehicle.year} ${vehicle.make} ${vehicle.model}`;
+
+
+
+    document
+        .getElementById(
+            'buildVehicleDetails'
+        )
+        .innerText =
+
+        `${vehicle.generation} • ${vehicle.engine} • ${vehicle.gearbox}`;
+
+
+
+    /*
+       Tags
+    */
+
+    const tagContainer =
+        document.getElementById(
+            'buildTags'
+        );
+
+
+    tagContainer.innerHTML = '';
+
+
+
+    goals.forEach(
+        goal => {
+
+            const tag =
+                document.createElement(
+                    'div'
+                );
+
+            tag.className =
+                'tag';
+
+            tag.innerText =
+                goal;
+
+            tagContainer.appendChild(
+                tag
+            );
+
+        }
+    );
+
+
+
+    const budgetTag =
+        document.createElement(
+            'div'
+        );
+
+
+    budgetTag.className =
+        'tag';
+
+
+    budgetTag.innerText =
+        `£${budget.toLocaleString()} Budget`;
+
+
+    tagContainer.appendChild(
+        budgetTag
+    );
+
+
+
+    /*
+       Parts
+    */
+
+    const list =
+        document.getElementById(
+            'partList'
+        );
+
+
+    list.innerHTML = '';
+
+
+
+    if (
+        parts.length === 0
+    ) {
+
+        list.innerHTML = `
+
+            <div class="empty-build">
+
+                No suitable parts found
+                for this combination yet.
+
+            </div>
+
+        `;
+
+    }
+
+
+
+    parts.forEach(
+        part => {
+
+
+            const item =
+                document.createElement(
+                    'div'
+                );
+
+
+            item.className =
+                'part';
+
+
+
+            item.innerHTML = `
+
+                <div class="part-image">
+
+                    ${part.icon}
+
+                </div>
+
+
+                <div class="part-info">
+
+                    <h3>
+                        ${part.name}
+                    </h3>
+
+                    <p>
+                        ${part.brand}
+                    </p>
+
+                </div>
+
+
+                <div class="part-price">
+
+                    £${part.price.toLocaleString()}
+
+                </div>
+
+            `;
+
+
+            list.appendChild(
+                item
+            );
+
+        }
+    );
+
+
+
+    /*
+       Totals
+    */
+
+    const partsTotal =
+        parts.reduce(
+            (
+                total,
+                part
+            ) =>
+                total +
+                part.price,
+
+            0
+        );
+
+
+
+    /*
+       Temporary fitting estimate.
+
+       Later this will be
+       provided by garages.
+    */
+
+    const fittingTotal =
+        parts.length * 70;
+
+
+
+    const grandTotal =
+        partsTotal +
+        fittingTotal;
+
+
+
+    document
+        .getElementById(
+            'partsTotal'
+        )
+        .innerText =
+        `£${partsTotal.toLocaleString()}`;
+
+
+
+    document
+        .getElementById(
+            'fittingTotal'
+        )
+        .innerText =
+        `£${fittingTotal.toLocaleString()}`;
+
+
+
+    document
+        .getElementById(
+            'grandTotal'
+        )
+        .innerText =
+        `£${grandTotal.toLocaleString()}`;
+
+
+
+    /*
+       Why list
+    */
+
+    const why =
+        document.getElementById(
+            'whyList'
+        );
+
+
+    why.innerHTML = '';
+
+
+
+    const reasons = [
+
+        'Selected around your chosen goals.',
+
+        'Designed around your available budget.',
+
+        'Parts are matched against the vehicle configuration.',
+
+        'Final recommendations will eventually be backed by BDOG research and enthusiast feedback.'
+
+    ];
+
+
+
+    reasons.forEach(
+        reason => {
+
+            const li =
+                document.createElement(
+                    'li'
+                );
+
+            li.innerText =
+                reason;
+
+            why.appendChild(
+                li
+            );
+
+        }
+    );
+
+}
+
+
+
+/* ==================================================
+   SAVE BUILD
+================================================== */
+
+function saveBuild() {
+
+
+    localStorage.setItem(
+        'bdogBuild',
+        JSON.stringify(
+            buildData
+        )
+    );
+
+
+    alert(
+        'Your build has been saved on this device.'
+    );
+
+}
+
+
 
 </script>
 
