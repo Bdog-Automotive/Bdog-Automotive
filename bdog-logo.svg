@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 250" role="img" aria-labelledby="title">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 215" width="800" height="215" role="img" aria-labelledby="title">
 <title id="title">BDOG Automotive</title>
-<image width="800" height="250" preserveAspectRatio="xMidYMid meet" href="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAP//////////////////////////////////////////////////////////////////////////////////////2wBDAf//////////////////////////////////////////////////////////////////////////////////////wAARCAHNAMgDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAf/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIQAxAAAAF//8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABBQJ//8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAwEBPwF//8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAgBAgEBPwF//8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQAGPwJ//8QAFBABAAAAAAAAAAAAAAAAAAAAAP/aAAgBAQABPyF//9k="/>
+<rect width="800" height="215" fill="#000"/>
+<g font-family="Arial Black,Arial,sans-serif" font-style="italic" font-weight="900" letter-spacing="-9">
+<text x="8" y="111" font-size="145" fill="#ed1c24" stroke="#fff" stroke-width="1.5">B</text>
+<text x="154" y="111" font-size="145" fill="#d9d9d9" stroke="#fff" stroke-width="1.5">DOG</text>
+</g>
+<text x="106" y="165" font-family="Arial,Helvetica,sans-serif" font-size="47" font-style="italic" font-weight="900" letter-spacing="15" fill="#e2e2e2">AUTOMOTIVE</text>
+<path d="M70 185H525" stroke="#ddd" stroke-width="6"/>
+<path d="M535 185H670" stroke="#ed1c24" stroke-width="8"/>
+<g fill="#ed1c24">
+<path d="M685 179l24-13h18l-25 19z"/>
+<path d="M719 179l24-13h18l-25 19z"/>
+<path d="M753 179l24-13h18l-25 19z"/>
+</g>
 </svg>
