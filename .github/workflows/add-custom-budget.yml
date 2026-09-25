@@ -1,0 +1,44 @@
+name: Add custom budget selector
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/add-custom-budget.yml'
+permissions:
+  contents: write
+jobs:
+  update:
+    if: "!contains(github.event.head_commit.message, '[custom-budget-update]')"
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Update budget section
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          p=Path('index.html')
+          s=p.read_text()
+          if 'id="customBudget"' in s:
+              raise SystemExit('Custom budget already present')
+          old_css='.budget.sel .check{background:var(--red);border-color:var(--red)}'
+          new_css=old_css+'.custom-budget{display:none;background:#11161b;border:1px solid #343e49;border-radius:9px;padding:16px 18px}.custom-budget.show{display:block}.custom-budget label{display:block;font-size:12px;font-weight:800;margin-bottom:9px}.money{display:flex;align-items:center;background:#151b22;border:1px solid #4a5562;border-radius:8px;overflow:hidden}.money span{padding-left:14px;color:#9aa3ad;font-weight:900}.money input{width:100%;background:transparent;border:0;outline:0;color:#fff;padding:13px 12px;font-size:16px}'
+          if old_css not in s: raise SystemExit('Budget CSS anchor not found')
+          s=s.replace(old_css,new_css,1)
+          old_html='<div class="budget" onclick="budget(this)"><div><b>£5,000+</b><small>No limits</small></div><i class="check"></i></div></div><div class="navrow"><button class="btn secondary" onclick="step(2)">← BACK</button>'
+          new_html='<div class="budget" onclick="budget(this)"><div><b>£5,000+</b><small>No limits</small></div><i class="check"></i></div><div class="budget" id="customOption" onclick="customSelect(this)"><div><b>Custom amount</b><small>Enter exactly what you want to spend</small></div><i class="check"></i></div><div class="custom-budget" id="customBudget"><label for="customAmount">Your budget</label><div class="money"><span>£</span><input id="customAmount" type="number" min="1" step="1" placeholder="Enter amount" oninput="customAmountChanged()"></div></div></div><div class="navrow"><button class="btn secondary" onclick="step(2)">← BACK</button>'
+          if old_html not in s: raise SystemExit('Budget HTML anchor not found')
+          s=s.replace(old_html,new_html,1)
+          old_js='function budget(el){document.querySelectorAll(\'.budget\').forEach(x=>x.classList.remove(\'sel\'));el.classList.add(\'sel\');document.querySelectorAll(\'.check\').forEach(x=>x.textContent=\'\');el.querySelector(\'.check\').textContent=\'✓\'}'
+          new_js=old_js+'function customSelect(el){document.querySelectorAll(\'.budget\').forEach(x=>x.classList.remove(\'sel\'));el.classList.add(\'sel\');document.querySelectorAll(\'.check\').forEach(x=>x.textContent=\'\');el.querySelector(\'.check\').textContent=\'✓\';document.getElementById(\'customBudget\').classList.add(\'show\');setTimeout(()=>document.getElementById(\'customAmount\').focus(),50)}function customAmountChanged(){const v=document.getElementById(\'customAmount\').value;if(v)document.querySelector(\'#customOption small\').textContent=\'Custom budget: £\'+Number(v).toLocaleString(\'en-GB\')}'
+          if old_js not in s: raise SystemExit('Budget JS anchor not found')
+          s=s.replace(old_js,new_js,1)
+          p.write_text(s)
+          PY
+      - name: Commit update and remove workflow
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add index.html
+          git rm .github/workflows/add-custom-budget.yml
+          git commit -m 'Add custom budget selector [custom-budget-update]'
+          git push
